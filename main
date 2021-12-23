@@ -1,7 +1,5 @@
 #include<simplecpp>
-#include<algorithm>
 #include<string>
-#include<iostream>
 #include<ctype.h>
 using namespace std;
 
@@ -10,7 +8,6 @@ void prePlay();
 void play()
 {
     prePlay();
-    //cout<<"Back to play";
 }
 
 void menu()
@@ -31,13 +28,12 @@ void menu()
         nextEvent(e1);
         ch = charFromEvent(e1);
     }
-
-        switch (ch)
-        {
-            case 49:play();
-                    break;
-            case 50:XEvent e2;
-                    {
+    switch (ch)
+    {
+        case 49:play();
+                break;
+        case 50:XEvent e2;
+                {
                         Text t1(300, 220, "Controls: ");
                         Text t2(300, 260, "Goal: ");
                         Text t3(300, 300, "-");
@@ -60,8 +56,8 @@ void menu()
                             menu();
                         }
                     }
-            case 51:XEvent e3;
-                    {
+        case 51:XEvent e3;
+                {
                         Text t1(300, 220, "CREDITS:");
                         Text t2(300, 260, "Project Members: ");
                         Text t3(300, 300, "Chinmay Joshi, Shubham Tendulkar, Vadiraj Inamdar, Vibhav Desai");
@@ -80,31 +76,28 @@ void menu()
                             menu();
                         }
                     }
-            case 52:closeCanvas();
-                    break;
-            default:
-                menu();
+        case 52:closeCanvas();
                 break;
-        }
-
+        default:menu();
+                break;
+    }
 }
-
 
 void ageRestrict()
 {
-                    XEvent e;
-                    {
-                        Text t1(300, 300, "You are not eligible to take this test!");
-                        Text t2(300, 350, "Press any key to go back!");
-                        t2.setColor(COLOR(255, 0, 0));
-                        nextEvent(e);
-                        int an = charFromEvent(e);
-                        if (an)
-                        {
-                            t1.~Text();
-                            t2.~Text();
-                        }
-                    }
+        XEvent e;
+        {
+            Text t1(300, 300, "You are not eligible to take this test!");
+            Text t2(300, 350, "Press any key to go back!");
+            t2.setColor(COLOR(255, 0, 0));
+            nextEvent(e);
+            int an = charFromEvent(e);
+            if (an)
+            {
+                t1.~Text();
+                t2.~Text();
+            }
+        }
 }
 
 void prePlay()
@@ -116,121 +109,96 @@ void prePlay()
         Text t2(300, 140, "Enter your year of birth");
         Text t3(300, 170, "YYYY: ");
         Text y(310+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
-
-            Text t4(310+(textWidth("YYYY: ")/2),170," - ");
-            Rectangle dec(310+(textWidth("YYYY: ")/2),170,textHeight(),textHeight());
-            Text t5(305+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170," + ");
-            Rectangle inc(305+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170,textHeight(),textHeight());
-            Rectangle db(340+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170,textWidth("DONE"),textHeight());
-            Text db_t(340+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170,"DONE");
-            while(1)
+        Text t4(310+(textWidth("YYYY: ")/2),170," - ");
+        Rectangle dec(310+(textWidth("YYYY: ")/2),170,textHeight(),textHeight());
+        Text t5(305+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170," + ");
+        Rectangle inc(305+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170,textHeight(),textHeight());
+        Rectangle db(340+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170,textWidth("DONE"),textHeight());
+        Text db_t(340+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170,"DONE");
+        while(1)
+        {
+            XEvent e;
             {
-                XEvent e;
+                nextEvent(e);
+                if(mouseButtonPressEvent(e))
                 {
-                    nextEvent(e);
-                    if(mouseButtonPressEvent(e))
+                    if(e.xbutton.x>328 && e.xbutton.x<341)
                     {
-                  // cout<<endl<<e.xbutton.x<<"\t"<<e.xbutton.y<<endl;
-                     // Text z(200,300," Clicked ");
-
-                     // Decrement year
-                        if(e.xbutton.x>328 && e.xbutton.x<341)
+                        if(e.xbutton.y>161 && e.xbutton.y<175)
                         {
-                            if(e.xbutton.y>161 && e.xbutton.y<175)
-                            {
-                                y.~Text();
-                                year--;
-                                Text y(310+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
-                                while(!getClick())
-                               wait(0.5);
-                                //break;
-                            }
+                            y.~Text();
+                            year--;
+                            Text y(310+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
+                            while(!getClick())
+                            wait(0.5);
                         }
-                        //Text s(210+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
-                       // wait(5);
-                        // Increment year
-                        if(e.xbutton.x>394 && e.xbutton.x<408)
+                    }
+                    if(e.xbutton.x>394 && e.xbutton.x<408)
+                    {
+                        if(e.xbutton.y>161 && e.xbutton.y<175)
                         {
-                            if(e.xbutton.y>161 && e.xbutton.y<175)
-                            {
-                                y.~Text();
-                                year++;
-                                Text y(310+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
-                                 while(!getClick())
-                               wait(0.5);
-                                //break;
-                            }
+                            y.~Text();
+                            year++;
+                            Text y(310+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
+                            while(!getClick())
+                            wait(0.5);
                         }
-                        // Done bttn
-                        if(e.xbutton.x>418 && e.xbutton.x<454)
+                    }
+                    if(e.xbutton.x>418 && e.xbutton.x<454)
+                    {
+                        if(e.xbutton.y>161 && e.xbutton.y<175)
                         {
-                            if(e.xbutton.y>161 && e.xbutton.y<175)
-                            {
-                                cout<<endl<<year<<endl;
-                                break;
-                            }
+                            cout<<endl<<year<<endl;
+                            break;
                         }
                     }
                 }
             }
-            t2.~Text();
-            t3.~Text();
-            t4.~Text();
-            t5.~Text();
-            y.~Text();
-            db_t.~Text();
-            dec.~Rectangle();
-            inc.~Rectangle();
-            db.~Rectangle();
-            if(2021-year<18)
+        }
+        t2.~Text();
+        t3.~Text();
+        t4.~Text();
+        t5.~Text();
+        y.~Text();
+        db_t.~Text();
+        dec.~Rectangle();
+        inc.~Rectangle();
+        db.~Rectangle();
+        if(2021-year<18)
+        {
+            ageRestrict();
+            menu();
+        }
+        string name_user;
+        XEvent name;
+        {
+        int i=0;
+        Text a(300,200,"Type your name: ");
+        while(1)
+        {
+            nextEvent(name);
+            if(mouseButtonPressEvent(name))continue;
+            if(charFromEvent(name)==13) break;
+            if(isdigit(charFromEvent(name))) continue;
+            cout<<endl<<(int)charFromEvent(name)<<endl;
+            name_user+= charFromEvent(name);
+        }
+        Text n(300,250,name_user);
+        XEvent z;
+        {
+            Text t5(300, 380, "Press any key to proceed!");
+            t5.setColor(COLOR(0, 255, 0));
+            nextEvent(z);
+            int an = charFromEvent(z);
+            if (an)
             {
-                ageRestrict();
-                menu();
+                a.~Text();
+                n.~Text();
             }
-            string name_user;
-            XEvent name;
-            {
-            int i=0;
-                Text a(300,200,"Type your name: ");
-               // cin.ignore();
-                while(1)
-                {
-                    nextEvent(name);
-                    if(mouseButtonPressEvent(name))continue;
-                    if(charFromEvent(name)==13) break;
-                    if(isdigit(charFromEvent(name))) continue;
-                    cout<<endl<<(int)charFromEvent(name)<<endl;
-                    name_user+= charFromEvent(name);
-                    //if(i==0)
-                    //{
-                      //  name_user.erase(0,1);
-                        //i++;
-                    //}
-
-                   // while(!charFromEvent(name))
-                     //          wait(0.5);
-                }
-                Text n(300,250,name_user);
-               XEvent z;
-                    {
-
-                        Text t5(300, 380, "Press any key to proceed!");
-                        t5.setColor(COLOR(0, 255, 0));
-                        nextEvent(z);
-                        int an = charFromEvent(z);
-                        if (an)
-                        {
-                            a.~Text();
-                            n.~Text();
-
-                        }
-                    }
-            }
-
-            cout<<endl<<name_user<<endl;
-            t1.~Text();
-
-
+        }
+    }
+    cout<<endl<<name_user<<endl;
+    t1.~Text();
 }
 
 int main()
