@@ -1,0 +1,240 @@
+#include<simplecpp>
+#include<algorithm>
+#include<string>
+#include<iostream>
+using namespace std;
+
+void prePlay();
+
+void play()
+{
+    prePlay();
+    //cout<<"Back to play";
+}
+
+void menu()
+{
+    Rectangle bg(200,300,400,600);
+    bg.setColor(COLOR(48,48,48));
+    bg.setFill();
+    char ch;
+    XEvent e1;
+    {
+        Text t(200, 50, "DRIVE!");
+        t.setColor(COLOR(255, 0, 0));
+        Text t1(200, 110, "M E N U");
+        Text t2(200, 140, "1: Start Game");
+        Text t3(200, 170, "2: Help");
+        Text t4(200, 200, "3: Credits");
+        Text t5(200, 230, "4: Exit");
+        nextEvent(e1);
+        ch = charFromEvent(e1);
+    }
+
+        switch (ch)
+        {
+            case 49:play();
+                    break;
+            case 50:XEvent e2;
+                    {
+                        Text t1(200, 220, "Controls: ");
+                        Text t2(200, 260, "Goal: ");
+                        Text t3(200, 300, "-");
+                        Text t4(200, 340, "-");
+                        Text t5(200, 380, "-");
+                        Text t6(200, 420, "-");
+                        Text t7(200, 460, "Press any key to go back!");
+                        t7.setColor(COLOR(255, 0, 0));
+                        nextEvent(e2);
+                        int an = charFromEvent(e2);
+                        if (an)
+                        {
+                            t1.~Text();
+                            t2.~Text();
+                            t3.~Text();
+                            t4.~Text();
+                            t5.~Text();
+                            t6.~Text();
+                            t7.~Text();
+                            menu();
+                        }
+                    }
+            case 51:XEvent e3;
+                    {
+                        Text t1(200, 220, "CREDITS:");
+                        Text t2(200, 260, "Project Members: Chinmay Joshi, Shubham Tendulkar, Vadiraj Inamdar, Vibhav Desai");
+                        Text t3(200, 300, "Teacher Incharge: Prof. Amrita Naik");
+                        Text t4(200, 340, "Version:1.0");
+                        Text t5(200, 380, "Press any key to go back!");
+                        t5.setColor(COLOR(255, 0, 0));
+                        nextEvent(e3);
+                        int an = charFromEvent(e3);
+                        if (an)
+                        {
+                            t1.~Text();
+                            t2.~Text();
+                            t3.~Text();
+                            t4.~Text();
+                            t5.~Text();
+                            menu();
+                        }
+                    }
+            case 52:closeCanvas();
+                    break;
+            default:
+                menu();
+                break;
+        }
+
+}
+
+
+void ageRestrict()
+{
+                    XEvent e;
+                    {
+                        Text t1(200, 300, "You are not eligible to take this test!");
+                        Text t2(200, 350, "Press any key to go back!");
+                        t2.setColor(COLOR(255, 0, 0));
+                        nextEvent(e);
+                        int an = charFromEvent(e);
+                        if (an)
+                        {
+                            t1.~Text();
+                            t2.~Text();
+                        }
+                    }
+}
+
+void prePlay()
+{
+        int year=2000;
+        Text t(200, 50, "W E L C O M E !");
+        t.setColor(COLOR(255, 0, 0));
+        Text t1(200, 110, "Few things before starting");
+        Text t2(200, 140, "Enter your year of birth");
+        Text t3(200, 170, "YYYY: ");
+        Text y(210+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
+
+            Text t4(210+(textWidth("YYYY: ")/2),170," - ");
+            Rectangle dec(210+(textWidth("YYYY: ")/2),170,textHeight(),textHeight());
+            Text t5(205+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170," + ");
+            Rectangle inc(205+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170,textHeight(),textHeight());
+            Rectangle db(240+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170,textWidth("DONE"),textHeight());
+            Text db_t(240+(textWidth("YYYY: ")/2)+(textHeight()/2)+textWidth("9999")+(2*textHeight()),170,"DONE");
+            while(1)
+            {
+                XEvent e;
+                {
+                    nextEvent(e);
+                    if(mouseButtonPressEvent(e))
+                    {
+                   // cout<<endl<<e.xbutton.x<<"\t"<<e.xbutton.y<<endl;
+                     // Text z(200,300," Clicked ");
+
+                     // Decrement year
+                        if(e.xbutton.x>228 && e.xbutton.x<241)
+                        {
+                            if(e.xbutton.y>161 && e.xbutton.y<175)
+                            {
+                                y.~Text();
+                                year--;
+                                Text y(210+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
+                                while(!getClick())
+                               wait(0.5);
+                                //break;
+                            }
+                        }
+                        //Text s(210+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
+                       // wait(5);
+                        // Increment year
+                        if(e.xbutton.x>294 && e.xbutton.x<308)
+                        {
+                            if(e.xbutton.y>161 && e.xbutton.y<175)
+                            {
+                                y.~Text();
+                                year++;
+                                Text y(210+(textWidth("YYYY: ")/2)+(2*textHeight()),170,year);
+                                 while(!getClick())
+                               wait(0.5);
+                                //break;
+                            }
+                        }
+                        // Done bttn
+                        if(e.xbutton.x>318 && e.xbutton.x<354)
+                        {
+                            if(e.xbutton.y>161 && e.xbutton.y<175)
+                            {
+                                cout<<endl<<year<<endl;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            t2.~Text();
+            t3.~Text();
+            t4.~Text();
+            t5.~Text();
+            y.~Text();
+            db_t.~Text();
+            dec.~Rectangle();
+            inc.~Rectangle();
+            db.~Rectangle();
+            if(2021-year<18)
+            {
+                ageRestrict();
+                menu();
+            }
+            string name_user;
+            XEvent name;
+            {
+            int i=0;
+                Text a(200,200,"Type your name: ");
+               // cin.ignore();
+                while(1)
+                {
+                    nextEvent(name);
+                    if(mouseButtonPressEvent(name))continue;
+                    if(charFromEvent(name)==13) break;
+                    cout<<endl<<(int)charFromEvent(name)<<endl;
+                    name_user+= charFromEvent(name);
+                    if(i==0)
+                    {
+                        name_user.erase(0,1);
+                        i++;
+                    }
+
+                   // while(!charFromEvent(name))
+                     //          wait(0.5);
+                }
+                Text n(200,250,name_user);
+               XEvent z;
+                    {
+
+                        Text t5(200, 380, "Press any key to proceed!");
+                        t5.setColor(COLOR(0, 255, 0));
+                        nextEvent(z);
+                        int an = charFromEvent(z);
+                        if (an)
+                        {
+                            a.~Text();
+                            n.~Text();
+
+                        }
+                    }
+            }
+
+            cout<<endl<<name_user<<endl;
+            t1.~Text();
+
+
+}
+
+int main()
+{
+    initCanvas("DRIVE",400,600);
+    menu();
+    closeCanvas();
+    getch();
+}
