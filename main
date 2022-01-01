@@ -1,13 +1,42 @@
+#include<iostream>
 #include<simplecpp>
 #include<string>
 #include<ctype.h>
+
 using namespace std;
+
+void clickPos()
+{
+    float clickpos[2]={getClick()/65536,getClick()%65536};
+    cout<<clickpos[0]<<"\t"<<clickpos[1]<<endl;
+}
+
+class car
+{
+    public:
+        car()
+        {
+            double sides[13][2]={16,148,16,169,30,169,55,171,90,172,118,172,142,177,133,157,114,154,96,140,50,140,33,157,16,148};
+            Polygon b(0,0,sides,13);
+            b.setFill();
+            while(1)wait(1);
+        }
+};
 
 void prePlay();
 
 void play()
 {
     prePlay();
+    Line l1(0,200,600,200);
+    Line l2(0,196,600,196);
+    Line l3(0,194,600,194);
+    l3.setColor(COLOR(255,255,255));
+    Line l4(0,190,600,190);
+    Line l5(0,186,600,186);
+    car c1;
+    //while(1)clickPos();
+    wait(20);
 }
 
 void menu()
