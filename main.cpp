@@ -11,22 +11,13 @@ void clickPos()
     cout<<clickpos[0]<<"\t"<<clickpos[1]<<endl;
 }
 
-class car
-{
-    public:
-        car()
-        {
-            double sides[13][2]={16,148,16,169,30,169,55,171,90,172,118,172,142,177,133,157,114,154,96,140,50,140,33,157,16,148};
-            Polygon b(0,0,sides,13);
-            b.setFill();
-            while(1)wait(1);
-        }
-};
+
 
 void prePlay();
 
 void play()
 {
+    int car_body_start[2]={0,0},car_wheel1_start[2]={36,177},car_wheel2_start[2]={116,177};
     prePlay();
     Line l1(0,200,600,200);
     Line l2(0,196,600,196);
@@ -34,9 +25,28 @@ void play()
     l3.setColor(COLOR(255,255,255));
     Line l4(0,190,600,190);
     Line l5(0,186,600,186);
-    car c1;
-    //while(1)clickPos();
-    wait(20);
+    double sides[13][2]={16,148,16,169,30,169,55,171,90,172,118,172,142,177,133,157,114,154,96,140,50,140,33,157,16,148};
+    Polygon b(car_body_start[0],car_body_start[1],sides,13);
+    b.setFill();
+    Circle w1(car_wheel1_start[0],car_wheel1_start[1],10);
+    Circle w2(car_wheel2_start[0],car_wheel2_start[1],10);
+    w1.setFill();
+    w2.setFill();
+   // while(1)clickPos();
+    wait(10);
+    int k=1;
+    while( k!=0)
+    {
+    for(int m=0;m<=50;m++)
+    {
+    b.moveTo(car_body_start[0]+=m,0);
+    w1.moveTo(car_wheel1_start[0]+=m,177);
+    w2.moveTo(car_wheel2_start[0]+=m,177);
+    }
+    wait(2);
+    k--;
+    }
+    while(1)clickPos();
 }
 
 void menu()
