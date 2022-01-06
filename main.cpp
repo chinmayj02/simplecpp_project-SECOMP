@@ -261,79 +261,35 @@ void prePlay()
             ageRestrict();
             menu();
         }
-         t1.~Text();
-            t.~Text();
- p:     string name_user="";
+        string name_user;
         XEvent name;
         {
-            int i=0;
-            Text a(300, 200, "Type your name: ");
-            while(1)
+        int i=0;
+        Text a(300, 200, "Type your name: ");
+        while(1)
+        {
+            nextEvent(name);
+            if(mouseButtonPressEvent(name))continue;
+            if(charFromEvent(name)==13) break;
+            if(isdigit(charFromEvent(name))) continue;
+            cout<<endl<<(int)charFromEvent(name)<<endl;
+            name_user+= charFromEvent(name);
+        }
+        t1.~Text();
+        t.~Text();
+        a.~Text();
+        Text n(300,250,"Welcome, "+name_user);
+        XEvent z;
+        {
+            Text t5(300, 380, "Press any key to proceed!");
+            t5.setColor(COLOR(0, 255, 0));
+            nextEvent(z);
+            int an = charFromEvent(z);
+            if (an)
             {
-            cout<<"IN while";    cout<<endl<<name_user<<endl;
-
-                nextEvent(name);
-                if(mouseButtonPressEvent(name))continue;
-                if(charFromEvent(name)==13) break;
-                if(isdigit(charFromEvent(name))) continue;
-                cout<<endl<<(int)charFromEvent(name)<<endl;
-                name_user+= charFromEvent(name);
+                n.~Text();
             }
-            a.~Text();
-            // name confirmation
-            Text q1(300, 200, name_user);
-            Text q2(250, 240, "Confirm");
-            q2.setColor(COLOR(0,255,0));
-            Text q3(350, 240, "Re-type");
-            q3.setColor(COLOR(255,0,0));
-            int flag=0;
-            while(1)
-            {
-                XEvent e101;
-                {
-                    nextEvent(e101);
-                    if(mouseButtonPressEvent(e101))
-                    {
-                        if(e101.xbutton.x>228 && e101.xbutton.x<274)
-                        {
-                            if(e101.xbutton.y>230 && e101.xbutton.y<245)
-                            {
-                                q1.~Text();
-                                q2.~Text();
-                                q3.~Text();
-                                flag=1;
-                                break;
-                            }
-                        }
-                        if(e101.xbutton.x>326 && e101.xbutton.x<372)
-                        {
-                            if(e101.xbutton.y>232 && e101.xbutton.y<246)
-                            {
-                                q1.~Text();
-                                q2.~Text();
-                                q3.~Text();
-                                flag=0;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-            if(flag==0) goto p;
-            Text n(300,250,"Welcome, "+name_user);
-            XEvent z;
-            {
-                Text t5(300, 380, "Press any key to proceed!");
-                t5.setColor(COLOR(0, 255, 0));
-                nextEvent(z);
-                int an = charFromEvent(z);
-                if (an)
-                {
-                    n.~Text();
-                    t5.~Text();
-                }
-            }
+        }
     }
     cout<<endl<<name_user<<endl;
     fstream f1;
@@ -341,7 +297,6 @@ void prePlay()
 	if(!f1) {cout<<"error"; return ;}
 	f1 << name_user<<'|'<<year<<'|'<<dt;
 	f1.close();
-	while(1)wait(1);
 }
 
 int main()
