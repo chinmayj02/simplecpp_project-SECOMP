@@ -278,13 +278,11 @@ void prePlay()
         }
     }
     cout<<endl<<name_user<<endl;
-
     fstream f1;
-	f1.open("user_data.txt", ios::app);
+	f1.open("user_data.txt", ios::out|ios::app);
 	if(!f1) {cout<<"error"; return ;}
 	f1 << name_user<<'|'<<year<<'|'<<dt;
 	f1.close();
-
 }
 
 int main()
