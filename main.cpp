@@ -5,15 +5,14 @@
 
 using namespace std;
 
+void prePlay();
+
 void clickPos()
 {
     float clickpos[2]={getClick()/65536,getClick()%65536};
     cout<<clickpos[0]<<"\t"<<clickpos[1]<<endl;
 }
 
-
-
-void prePlay();
 
 void play()
 {
