@@ -32,15 +32,48 @@ void play()
     w1.setFill();
     w2.setFill();
    // while(1)clickPos();
-    wait(4);
-    for(int m=0;m<=50;m++)
+
+   ////star test
+   double star_sides[5][2];
+
+  for(int i=0; i<5; i++)
+  {
+    star_sides[i][0] = 5*cos(4*PI/5*i);
+    star_sides[i][1] = 5*sin(4*PI/5*i);
+  }
+  Polygon star1(168,168,star_sides,5);
+  Polygon star2(268,168,star_sides,5);
+  Polygon star3(368,168,star_sides,5);
+  Polygon star4(468,168,star_sides,5);
+  Polygon star5(568,168,star_sides,5);
+  star1.setColor(COLOR(255, 234, 0));
+  star2.setColor(COLOR(255, 234, 0));
+  star3.setColor(COLOR(255, 234, 0));
+  star4.setColor(COLOR(255, 234, 0));
+  star5.setColor(COLOR(255, 234, 0));
+  star1.setFill();
+  star2.setFill();
+  star3.setFill();
+  star4.setFill();
+  star5.setFill();
+  for(int i=0; i<100; i++)
+  {
+    star1.right(5);
+    star2.right(5);
+    star3.right(5);
+    star4.right(5);
+    star5.right(5);
+    wait(0.1);
+  }
+  wait(4);
+    /*for(int m=0;m<=50;m++)
     {
         b.moveTo(car_body_start[0]+=m, 0);
         w1.moveTo(car_wheel1_start[0]+=m, 177);
         w2.moveTo(car_wheel2_start[0]+=m, 177);
     }
     wait(2);
-
+*/
     while(1)clickPos();
 }
 
