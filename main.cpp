@@ -9,6 +9,7 @@ using namespace std;
 
 void prePlay();
 
+// to get coordinates of mouse click
 void clickPos()
 {
     float clickpos[2]={getClick()/65536, getClick()%65536};
@@ -20,6 +21,7 @@ void play()
 {
     int car_body_start[2]={0, 0},car_wheel1_start[2]={36, 177},car_wheel2_start[2]={116, 177};
     prePlay();
+    // lines below car -road
     Line l1(0, 200, 600, 200);
     Line l2(0, 196, 600, 196);
     Line l3(0, 194, 600, 194);
@@ -27,12 +29,15 @@ void play()
     Line l4(0, 190, 600, 190);
     Line l5(0, 186, 600, 186);
     double sides[13][2]={16,148,16,169,30,169,55,171,90,172,118,172,142,177,133,157,114,154,96,140,50,140,33,157,16,148};
+    // car body
     Polygon b(car_body_start[0], car_body_start[1], sides,13);
     b.setFill();
+    //car wheels
     Circle w1(car_wheel1_start[0], car_wheel1_start[1], 10);
     Circle w2(car_wheel2_start[0], car_wheel2_start[1], 10);
     w1.setFill();
     w2.setFill();
+    // construction of stars
     double star_sides[5][2];
     for(int i=0; i<5; i++)
     {
@@ -54,6 +59,7 @@ void play()
     star3.setFill();
     star4.setFill();
     star5.setFill();
+    // stars rotation
     while(1)
     {
         star1.right(5);
@@ -64,6 +70,7 @@ void play()
         wait(0.1);
     }
 
+    // car movement
   /*for(int m=0;m<=50;m++)
     {
         b.moveTo(car_body_start[0]+=m, 0);
@@ -77,6 +84,7 @@ void play()
 
 void menu()
 {
+    // background
     Rectangle bg(300, 300, 600, 600);
     bg.setColor(COLOR(48, 48, 48));
     bg.setFill();
@@ -95,8 +103,10 @@ void menu()
     }
     switch (ch)
     {
+        // input=1
         case 49:play();
                 break;
+        // input=2
         case 50:XEvent e2;
                 {
                         Text t1(300, 150, "Controls: ");
@@ -125,6 +135,7 @@ void menu()
                             menu();
                         }
                     }
+        // input=3
         case 51:XEvent e3;
                 {
                         Text t1(300, 150, "CREDITS:");
@@ -151,6 +162,7 @@ void menu()
                             menu();
                         }
                     }
+        // input=4
         case 52:closeCanvas();
                 break;
         default:menu();
@@ -177,9 +189,11 @@ void ageRestrict()
 
 void prePlay()
 {
+        // local time
         time_t now = time(0);
+        // saving time in string-format- (day month date hours:minutes:seconds year)
         char* dt = ctime(&now);
-        int year=2000;
+        int year=2000;// year of birth
         Text t(300, 50, "W E L C O M E !");
         Text tm(500,20,dt);
         t.setColor(COLOR(255, 0, 0));
@@ -242,7 +256,7 @@ void prePlay()
         dec.~Rectangle();
         inc.~Rectangle();
         db.~Rectangle();
-        if(2021-year<18)
+        if(2021-year<18) // check if age is 18 or above
         {
             ageRestrict();
             menu();
