@@ -3,6 +3,7 @@
 #include<string>
 #include<ctype.h>
 #include<ctime>
+#include<fstream>
 
 using namespace std;
 
@@ -277,6 +278,12 @@ void prePlay()
         }
     }
     cout<<endl<<name_user<<endl;
+
+    fstream f1;
+	f1.open("user_data.txt", ios::app);
+	if(!f1) {cout<<"error"; return ;}
+	f1 << name_user<<'|'<<year<<'|'<<dt;
+	f1.close();
 
 }
 
