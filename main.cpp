@@ -24,21 +24,7 @@ void play()
     l3.setColor(COLOR(255, 255, 255));
     Line l4(0, 190, 600, 190);
     Line l5(0, 186, 600, 186);
-    double sides[13][2]={
-                         (016, 148),
-                         (016, 169),
-                         (030, 169),
-                         (055, 171),
-                         (090, 172),
-                         (118, 172),
-                         (142, 177),
-                         (133, 157),
-                         (114, 154),
-                         (096, 140),
-                         (050, 140),
-                         (033, 157),
-                         (016, 148)
-                        };
+    double sides[13][2]={16,148,16,169,30,169,55,171,90,172,118,172,142,177,133,157,114,154,96,140,50,140,33,157,16,148};
     Polygon b(car_body_start[0], car_body_start[1], sides,13);
     b.setFill();
     Circle w1(car_wheel1_start[0], car_wheel1_start[1], 10);
@@ -46,19 +32,15 @@ void play()
     w1.setFill();
     w2.setFill();
    // while(1)clickPos();
-    wait(10);
-    int k=1;
-    while( k!=0)
+    wait(4);
+    for(int m=0;m<=50;m++)
     {
-        for(int m=0;m<=50;m++)
-        {
-            b.moveTo(car_body_start[0]+=m, 0);
-            w1.moveTo(car_wheel1_start[0]+=m, 177);
-            w2.moveTo(car_wheel2_start[0]+=m, 177);
-        }
-        wait(2);
-        k--;
+        b.moveTo(car_body_start[0]+=m, 0);
+        w1.moveTo(car_wheel1_start[0]+=m, 177);
+        w2.moveTo(car_wheel2_start[0]+=m, 177);
     }
+    wait(2);
+
     while(1)clickPos();
 }
 
@@ -245,7 +227,10 @@ void prePlay()
             cout<<endl<<(int)charFromEvent(name)<<endl;
             name_user+= charFromEvent(name);
         }
-        Text n(300,250,name_user);
+        t1.~Text();
+        t.~Text();
+        a.~Text();
+        Text n(300,250,"Welcome, "+name_user);
         XEvent z;
         {
             Text t5(300, 380, "Press any key to proceed!");
@@ -254,13 +239,12 @@ void prePlay()
             int an = charFromEvent(z);
             if (an)
             {
-                a.~Text();
                 n.~Text();
             }
         }
     }
     cout<<endl<<name_user<<endl;
-    t1.~Text();
+
 }
 
 int main()
