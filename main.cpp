@@ -9,6 +9,31 @@
 using namespace std;
 
 void prePlay();
+int s=1;
+int correctanswer=0;
+string name_user;
+int year=2000;// year of birth
+char* dt;
+
+
+class que
+{
+    char q[10000],op1[1000],op2[1000],op3[1000],op4[1000];
+    int A,B,C,D;
+    public:
+        char* question(){return(q);}
+        char* o1(){return(op1);}
+        char* o2(){return(op2);}
+        char* o3(){return(op3);}
+        char* o4(){return(op4);}
+        int correctanswer()
+        {
+            if(A==1)return(1);
+            else if(B==1)return(2);
+            else if(C==1)return(3);
+            else return(4);
+        }
+};
 
 // to get coordinates of mouse click
 void clickPos()
@@ -17,9 +42,239 @@ void clickPos()
     cout<<clickpos[0]<<"\t"<<clickpos[1]<<endl;
 }
 
+int getans(int x,int y)
+{
+    if(((x>=58)&&(x<=161)) && ((y>=394)&&(y<=446 ))) return(10);
+    else if(((x>=58)&&(x<=162))&&((y>=494)&&(y<=544))) return(20);
+    else if(((x>=417)&&(x<=522))&&((y>=394)&&(y<=444))) return(30);
+    else if(((x>=418)&&(x<=522))&&((y>=495)&&(y<=544))) return(40);
+    else return(0);
+}
+
+void test(char q[],char op1[],char op2[],char op3[],char op4[],int v)
+{
+    int z=0,p;
+    Rectangle RB(290,290,500,100);
+    Rectangle ROP_1(110,420,175,50);
+    Rectangle ROP_2(110,520,175,50);
+    Rectangle ROP_3(470,420,175,50);
+    Rectangle ROP_4(470,520,175,50);
+    Circle C(290,460,40);
+    Text q_in(290,460-textHeight(),"Q No:");
+    string q_no="0";
+    if(s==1) q_no.replace(0,1,"1");
+    else if(s==2)q_no.replace(0,1,"2");
+    else if(s==3)q_no.replace(0,1,"3");
+    else if(s==4)q_no.replace(0,1,"4");
+    else if(s==5)q_no.replace(0,1,"5");
+    Text qno(290,460,q_no+"/5");
+    Text A(260,290,q);
+    Text OP1(110,420,op1);
+    Text OP2(110,520,op2);
+    Text OP3(470,420,op3);
+    Text OP4(470,520,op4);
+    stat:
+    int a=getClick();
+    int x=a/65536;
+    int y=a%65536;
+    z=getans(x,y);
+    p=v;
+    if(s==1)
+    {
+        if((z==10)&&(p==1))
+        {
+            ROP_1.setColor(COLOR(0,255,0));
+            ROP_1.setFill();
+            wait(0.9);
+            correctanswer++;
+        }
+        else if((z==20)&&(p==1))
+        {
+            ROP_2.setColor(COLOR(255,99,71));
+            ROP_2.setFill();
+            ROP_1.setColor(COLOR(0,255,0));
+            ROP_1.setFill();
+            wait(0.9);
+        }
+        else if((z==30)&&(p==1))
+        {
+            ROP_3.setColor(COLOR(255,99,71));
+            ROP_3.setFill();
+            ROP_1.setColor(COLOR(0,255,0));
+            ROP_1.setFill();
+            wait(0.9);
+        }
+        else if((z==40)&&(p==1))
+        {
+            ROP_4.setColor(COLOR(255,99,71));
+            ROP_4.setFill();
+            ROP_1.setColor(COLOR(0,255,0));
+            ROP_1.setFill();
+            wait(0.9);
+        }
+        else goto stat;
+    }
+    else if(s==2)
+    {
+        if((z==20)&&(p==2))
+        {
+            ROP_2.setColor(COLOR(255,99,71));
+            ROP_2.setFill();
+            ROP_3.setColor(COLOR(0,255,0));
+            ROP_3.setFill();
+            wait(0.9);
+        }
+        else if((z==10)&&(p==2))
+        {
+            ROP_1.setColor(COLOR(255,99,71));
+            ROP_1.setFill();
+            ROP_3.setColor(COLOR(0,255,0));
+            ROP_3.setFill();
+            wait(0.9);
+        }
+        else if((z==30)&&(p==2))
+        {
+            ROP_3.setColor(COLOR(0,255,0));
+            ROP_3.setFill();
+            correctanswer++;
+            wait(0.9);
+        }
+        else if((z==40)&&(p==2))
+        {
+            ROP_4.setColor(COLOR(255,99,71));
+            ROP_4.setFill();
+            ROP_3.setColor(COLOR(0,255,0));
+            ROP_3.setFill();
+            wait(0.9);
+        }
+        else goto stat;
+    }
+    else if(s==3)
+    {
+        if((z==30)&&(p==3))
+        {
+            ROP_3.setColor(COLOR(255,99,71));
+            ROP_3.setFill();
+            ROP_2.setColor(COLOR(0,255,0));
+            ROP_2.setFill();
+            wait(0.9);
+        }
+        else if((z==10)&&(p==3))
+        {
+            ROP_1.setColor(COLOR(255,99,71));
+            ROP_1.setFill();
+            ROP_2.setColor(COLOR(0,255,0));
+            ROP_2.setFill();
+            wait(0.9);
+        }
+        else if((z==20)&&(p==3))
+        {
+            ROP_2.setColor(COLOR(0,255,0));
+            ROP_2.setFill();
+            correctanswer++;
+            wait(0.9);
+        }
+        else if((z==40)&&(p==3))
+        {
+            ROP_4.setColor(COLOR(255,99,71));
+            ROP_4.setFill();
+            ROP_2.setColor(COLOR(0,255,0));
+            ROP_2.setFill();
+            wait(0.9);
+        }
+        else goto stat;
+    }
+    else if(s==4)
+    {
+        if((z==10)&&(p==4))
+        {
+            ROP_1.setColor(COLOR(0,255,0));
+            ROP_1.setFill();
+            correctanswer++;
+            wait(0.9);
+        }
+        else if((z==20)&&(p==4))
+        {
+            ROP_2.setColor(COLOR(255,99,71));
+            ROP_2.setFill();
+            ROP_1.setColor(COLOR(0,255,0));
+            ROP_1.setFill();
+            wait(0.9);
+        }
+        else if((z==30)&&(p==4))
+        {
+            ROP_3.setColor(COLOR(255,99,71));
+            ROP_3.setFill();
+            ROP_1.setColor(COLOR(0,255,0));
+            ROP_1.setFill();
+            wait(0.9);
+        }
+        else if((z==40)&&(p==4))
+        {
+            ROP_4.setColor(COLOR(255,99,71));
+            ROP_4.setFill();
+            ROP_1.setColor(COLOR(0,255,0));
+            ROP_1.setFill();
+            wait(0.9);
+        }
+        else goto stat;
+    }
+    else if(s==5)
+    {
+        if((z==40)&&(p==5))
+        {
+            ROP_4.setColor(COLOR(0,255,0));
+            ROP_4.setFill();
+            correctanswer++;
+            wait(0.9);
+        }
+        else if((z==30)&&(p==5))
+        {
+            ROP_3.setColor(COLOR(255,99,71));
+            ROP_3.setFill();
+            ROP_4.setColor(COLOR(0,255,0));
+            ROP_4.setFill();
+            wait(0.9);
+        }
+        else if((z==20)&&(p==5))
+        {
+            ROP_2.setColor(COLOR(255,99,71));
+            ROP_2.setFill();
+            ROP_4.setColor(COLOR(0,255,0));
+            ROP_4.setFill();
+            wait(0.9);
+        }
+        else if((z==10)&&(p==5))
+        {
+            ROP_1.setColor(COLOR(255,99,71));
+            ROP_1.setFill();
+            ROP_4.setColor(COLOR(0,255,0));
+            ROP_4.setFill();
+            wait(0.9);
+        }
+        else goto stat;
+    }
+    s++;
+    if(s>=6)
+    {
+        RB.~Rectangle();
+        ROP_1.~Rectangle();
+        ROP_2.~Rectangle();
+        ROP_3.~Rectangle();
+        ROP_4.~Rectangle();
+        C.~Circle();
+        A.~Text();
+        OP1.~Text();
+        OP2.~Text();
+        OP3.~Text();
+        OP4.~Text();
+        return;
+    }
+}
 
 void play()
 {
+    string status="0000";
     int car_body_start[2]={0, 0},car_wheel1_start[2]={36, 177},car_wheel2_start[2]={116, 177};
     prePlay();
     // lines below car -road
@@ -60,8 +315,84 @@ void play()
     star3.setFill();
     star4.setFill();
     star5.setFill();
+    que t[10];
+    int i;
+    char s[1000],o1[1000],o2[1000],o3[1000],o4[1000];
+    fstream f;//binary file object
+    f.open("quiz_data.dat",ios::binary|ios::in);
+    for(i=1;i<=5;i++)//loop to execute the test
+    {
+        f.read((char*)&t[i],sizeof(t[i]));
+        strcpy(s,t[i].question());
+        strcpy(o1,t[i].o1());
+        strcpy(o2,t[i].o2());
+        strcpy(o3,t[i].o3());
+        strcpy(o4,t[i].o4());
+        test(s,o1,o2,o3,o4,i);
+    }
+    if(correctanswer>=3)
+    {
+        status.replace(0,4,"Pass");
+        b.~Polygon();
+        star1.~Polygon();
+        star2.~Polygon();
+        star3.~Polygon();
+        star4.~Polygon();
+        star5.~Polygon();
+        w1.~Circle();
+        w2.~Circle();
+        l1.~Line();
+        l2.~Line();
+        l3.~Line();
+        l4.~Line();
+        l5.~Line();
+        Rectangle Pas(300,300,300,100);
+        Text Pass(300,300,"CONGRATS!!!YOU PASSED THE TEST");
+        Pass.setFill(COLOR(0,255,0));
+        XEvent endgame;
+        {
+            while(1)
+            {
+                nextEvent(endgame);
+                int an = charFromEvent(endgame);
+                if (an) break;
+            }
+
+        }
+    }
+    else
+    {
+        status.replace(0,4,"Fail");
+        b.~Polygon();
+        star1.~Polygon();
+        star2.~Polygon();
+        star3.~Polygon();
+        star4.~Polygon();
+        star5.~Polygon();
+        w1.~Circle();
+        w2.~Circle();
+        l1.~Line();
+        l2.~Line();
+        l3.~Line();
+        l4.~Line();
+        l5.~Line();
+        Rectangle Pas(300,300,300,100);
+        Text Pass(300,300,"Oh!!!Better Luck Next Time...");
+        Pass.setFill(COLOR(0,255,0));
+        XEvent endgame;
+        {
+            while(1)
+            {
+                nextEvent(endgame);
+                int an = charFromEvent(endgame);
+                if (an) break;
+            }
+
+        }
+
+    }
     // stars rotation
-    while(1)
+   /* while(1)
     {
         star1.right(5);
         star2.right(5);
@@ -70,9 +401,8 @@ void play()
         star5.right(5);
         wait(0.1);
     }
-
     // car movement
-  /*for(int m=0;m<=50;m++)
+    for(int m=0;m<=50;m++)
     {
         b.moveTo(car_body_start[0]+=m, 0);
         w1.moveTo(car_wheel1_start[0]+=m, 177);
@@ -80,7 +410,14 @@ void play()
     }
     wait(2);
 */
-    while(1)clickPos();
+    //while(1)clickPos();
+
+    fstream f1;
+    f1.open("user_data.txt", ios::out|ios::app);// for record keeping
+    if(!f1) {cout<<"error"; return ;}
+    // format-  name|year_of_birth|score|pass or fail|timestamp
+    f1 << name_user<<'|'<<year<<'|'<<correctanswer<<'|'<<status<<'|'<<dt;
+    f1.close();
 }
 
 void menu()
@@ -92,7 +429,7 @@ void menu()
     char ch;
     XEvent e1;
     {
-        Text t(300, 50, "DRIVE!");
+        Text t(300, 50, "D R ! V E ezy");
         t.setColor(COLOR(255, 0, 0));
         Text t1(300, 110, "M E N U");
         Text t2(300, 140, "1: Start Test");
@@ -143,12 +480,11 @@ void menu()
                             c2.~Text();
                             system("CLS");
                             menu();
-
                         }
                     }
         // input=3
         case 51:cout<<endl<<"%Credits%"<<endl;
-                cout<<endl<<"\tTeam: "<<endl;
+                cout<<endl<<"\tTeam Dynamites "<<endl;
                 cout<<endl<<"Vibhav Desai (2014063)"<<endl;
                 cout<<endl<<"Vadiraj Inamdar (2014059)"<<endl;
                 cout<<endl<<"Shubham Tendulkar (2014051)"<<endl;
@@ -157,7 +493,7 @@ void menu()
                 XEvent e3;
                 {
                         Text t1(300, 150, "CREDITS:");
-                        Text t2(300, 190, "Team: ");
+                        Text t2(300, 190, "Team Dynamites ");
                         Text m1(300, 230, "Vibhav Desai (2014063)");
                         Text m2(300, 250, "Vadiraj Inamdar (2014059)");
                         Text m3(300, 270, "Shubham Tendulkar (2014051)");
@@ -219,9 +555,8 @@ void prePlay()
         // local time
         time_t now = time(0);
         // saving time in string-format- (day month date hours:minutes:seconds year)
-        char* dt = ctime(&now);
+        dt = ctime(&now);
         cout<<endl<<dt<<endl;
-        int year=2000;// year of birth
         Text t(300, 50, "W E L C O M E !");
         Text tm(500,20,dt);
         t.setColor(COLOR(255, 0, 0));
@@ -289,45 +624,39 @@ void prePlay()
             ageRestrict();
             menu();
         }
-        string name_user;
         XEvent name;
         {
-        int i=0;
-        Text a(300, 200, "Type your name: ");
-        cout<<"Name: ";
-        while(1)
-        {
-            nextEvent(name);
-            if(mouseButtonPressEvent(name))continue;
-            if(charFromEvent(name)==13) break;
-            if(isdigit(charFromEvent(name))) continue;
-            if(charFromEvent(name)==8) continue;
-            cout<<charFromEvent(name);
-            name_user+= charFromEvent(name);
-        }
-        t1.~Text();
-        t.~Text();
-        a.~Text();
-        Text n(300,250,"Welcome, "+name_user);
-        XEvent z;
-        {
-            Text t5(300, 380, "Press any key to proceed!");
-            t5.setColor(COLOR(0, 255, 0));
-            nextEvent(z);
-            int an = charFromEvent(z);
-            if (an)
+            int i=0;
+            Text a(300, 200, "Type your name: ");
+            cout<<"Name: ";
+            while(1)
             {
-                n.~Text();
-                cout<<endl<<endl<<"**Test initiated successfully**"<<endl;
+                nextEvent(name);
+                if(mouseButtonPressEvent(name))continue;
+                if(charFromEvent(name)==13) break;
+                if(isdigit(charFromEvent(name))) continue;
+                if(charFromEvent(name)==8) continue;
+                cout<<charFromEvent(name);
+                name_user+= charFromEvent(name);
+            }
+            t1.~Text();
+            t.~Text();
+            a.~Text();
+            Text n(300,250,"Welcome, "+name_user);
+            XEvent z;
+            {
+                Text t5(300, 380, "Press any key to proceed!");
+                t5.setColor(COLOR(0, 255, 0));
+                nextEvent(z);
+                int an = charFromEvent(z);
+                if (an)
+                {
+                    n.~Text();
+                    cout<<endl<<endl<<"**Test initiated successfully**"<<endl;
+                }
             }
         }
-    }
-    cout<<endl<<"Welcome, "<<name_user<<" !"<<endl;
-    fstream f1;
-	f1.open("user_data.txt", ios::out|ios::app);
-	if(!f1) {cout<<"error"; return ;}
-	f1 << name_user<<'|'<<year<<'|'<<dt;
-	f1.close();
+        cout<<endl<<"Welcome, "<<name_user<<" !"<<endl;
 }
 
 int main()
