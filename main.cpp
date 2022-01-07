@@ -193,6 +193,7 @@ void prePlay()
         time_t now = time(0);
         // saving time in string-format- (day month date hours:minutes:seconds year)
         char* dt = ctime(&now);
+        cout<<endl<<dt<<endl;
         int year=2000;// year of birth
         Text t(300, 50, "W E L C O M E !");
         Text tm(500,20,dt);
@@ -240,7 +241,7 @@ void prePlay()
                     {
                         if(e.xbutton.y>161 && e.xbutton.y<175)
                         {
-                            cout<<endl<<year<<endl;
+                            cout<<endl<<"Year of birth: "<<year<<"\tAge: "<<2022-year<<endl<<endl;
                             break;
                         }
                     }
@@ -266,13 +267,14 @@ void prePlay()
         {
         int i=0;
         Text a(300, 200, "Type your name: ");
+        cout<<"Name: ";
         while(1)
         {
             nextEvent(name);
             if(mouseButtonPressEvent(name))continue;
             if(charFromEvent(name)==13) break;
             if(isdigit(charFromEvent(name))) continue;
-            cout<<endl<<(int)charFromEvent(name)<<endl;
+            cout<<charFromEvent(name);
             name_user+= charFromEvent(name);
         }
         t1.~Text();
@@ -288,10 +290,11 @@ void prePlay()
             if (an)
             {
                 n.~Text();
+                cout<<endl<<endl<<"**Test initiated successfully**"<<endl;
             }
         }
     }
-    cout<<endl<<name_user<<endl;
+    cout<<endl<<"Welcome, "<<name_user<<" !"<<endl;
     fstream f1;
 	f1.open("user_data.txt", ios::out|ios::app);
 	if(!f1) {cout<<"error"; return ;}
