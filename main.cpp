@@ -172,17 +172,24 @@ void menu()
 
 void ageRestrict()
 {
-        XEvent e;
+        int error=0;
+        XEvent ar;
         {
             Text t1(300, 300, "You are not eligible to take this test!");
+            cout<<endl<<"You are not eligible to take this test!"<<endl;
             Text t2(300, 350, "Press any key to go back!");
             t2.setColor(COLOR(255, 0, 0));
-            nextEvent(e);
-            int an = charFromEvent(e);
-            if (an)
+            while(1)
             {
-                t1.~Text();
-                t2.~Text();
+                nextEvent(ar);
+                int an = charFromEvent(ar);
+                if(an==49) continue;
+                else
+                {
+                    t1.~Text();
+                    t2.~Text();
+                    return;
+                }
             }
         }
 }
