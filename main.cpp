@@ -153,7 +153,7 @@ void menu()
                 cout<<endl<<"Vadiraj Inamdar (2014059)"<<endl;
                 cout<<endl<<"Shubham Tendulkar (2014051)"<<endl;
                 cout<<endl<<"Chinmay Joshi (2014006)"<<endl;
-                cout<<endl<<"\nFaculty Incharge: Prof. Amrita Naik"<<endl;;
+                 cout<<endl<<"\nFaculty Incharge: Prof. Amrita Naik"<<endl;;
                 XEvent e3;
                 {
                         Text t1(300, 150, "CREDITS:");
@@ -301,6 +301,7 @@ void prePlay()
             if(mouseButtonPressEvent(name))continue;
             if(charFromEvent(name)==13) break;
             if(isdigit(charFromEvent(name))) continue;
+            if(charFromEvent(name)==8) continue;
             cout<<charFromEvent(name);
             name_user+= charFromEvent(name);
         }
