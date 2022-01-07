@@ -4,6 +4,7 @@
 #include<ctype.h>
 #include<ctime>
 #include<fstream>
+#include<stdlib.h>
 
 using namespace std;
 
@@ -94,7 +95,7 @@ void menu()
         Text t(300, 50, "DRIVE!");
         t.setColor(COLOR(255, 0, 0));
         Text t1(300, 110, "M E N U");
-        Text t2(300, 140, "1: Start Game");
+        Text t2(300, 140, "1: Start Test");
         Text t3(300, 170, "2: Help");
         Text t4(300, 200, "3: Credits");
         Text t5(300, 230, "4: Exit");
@@ -104,10 +105,18 @@ void menu()
     switch (ch)
     {
         // input=1
-        case 49:play();
+        case 49:cout<<endl<<"%Start Test%"<<endl;
+                play();
                 break;
         // input=2
-        case 50:XEvent e2;
+        case 50:cout<<endl<<"%Help%"<<endl;
+                cout<<endl<<"Use mouse to hover over the options."<<endl;
+                cout<<endl<<"Left mouse click to select your answer."<<endl;
+                cout<<endl<<"\tGoal: "<<endl;
+                cout<<endl<<"This is a very basic traffic test."<<endl;
+                cout<<endl<<"Total of 5 multiple choice questions will be asked."<<endl;
+                cout<<endl<<"Score will be calculated based on\nthe number of correct answers and the speed of answering"<<endl;
+                XEvent e2;
                 {
                         Text t1(300, 150, "Controls: ");
                         Text c1(300, 190, "Use mouse to hover over the options.");
@@ -132,17 +141,26 @@ void menu()
                             t7.~Text();
                             c1.~Text();
                             c2.~Text();
+                            system("CLS");
                             menu();
+
                         }
                     }
         // input=3
-        case 51:XEvent e3;
+        case 51:cout<<endl<<"%Credits%"<<endl;
+                cout<<endl<<"\tTeam: "<<endl;
+                cout<<endl<<"Vibhav Desai (2014063)"<<endl;
+                cout<<endl<<"Vadiraj Inamdar (2014059)"<<endl;
+                cout<<endl<<"Shubham Tendulkar (2014051)"<<endl;
+                cout<<endl<<"Chinmay Joshi (2014006)"<<endl;
+                cout<<endl<<"\nFaculty Incharge: Prof. Amrita Naik"<<endl;;
+                XEvent e3;
                 {
                         Text t1(300, 150, "CREDITS:");
-                        Text t2(300, 190, "Project Members: ");
-                        Text m1(300, 230, "Vibhav Desai (2014XXX)");
-                        Text m2(300, 250, "Vadiraj Inamdar (2014XXX)");
-                        Text m3(300, 270, "Shubham Tendulkar (2014XXX)");
+                        Text t2(300, 190, "Team: ");
+                        Text m1(300, 230, "Vibhav Desai (2014063)");
+                        Text m2(300, 250, "Vadiraj Inamdar (2014059)");
+                        Text m3(300, 270, "Shubham Tendulkar (2014051)");
                         Text m4(300, 290, "Chinmay Joshi (2014006)");
                         Text t3(300, 330, "Faculty Incharge: Prof. Amrita Naik");
                         Text t4(300, 380, "Press any key to go back!");
@@ -159,11 +177,13 @@ void menu()
                             m1.~Text();
                             m3.~Text();
                             m4.~Text();
+                            system("CLS");
                             menu();
                         }
                     }
         // input=4
-        case 52:closeCanvas();
+        case 52:cout<<endl<<"%Exit%"<<endl;
+                closeCanvas();
                 break;
         default:menu();
                 break;
