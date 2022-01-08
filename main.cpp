@@ -42,20 +42,20 @@ void clickPos()
     cout<<clickpos[0]<<"\t"<<clickpos[1]<<endl;
 }
 
-void startUP()
+void load(string str1,string str2)
 {
-    cout<<endl<<"Application is loading.\nPlease Wait."<<endl;
+    cout<<endl<<str2<<endl;
     int centre= 187;
     int len=0;
-    Text l(300,200,"L O A D I N G . . .");
+    Text l(300,200,str1);
     for(int i=1;i<=8;i++)
     {
         Rectangle load_inner((centre+=12),250,len+=25,textHeight()-2);
         load_inner.setColor(COLOR(0,255,0));
         load_inner.setFill();
-        wait(1);
+        wait(0.7);
     }
-    system("cls");
+    //system("cls");
 }
 
 int getans(int x,int y)
@@ -609,6 +609,7 @@ void play()
     string status="0000";
     int car_body_start[2]={0, 0},car_wheel1_start[2]={36, 177},car_wheel2_start[2]={116, 177};
     prePlay();
+    load("Preparing the questions...","");
     // lines below car -road
     Line l1(0, 200, 600, 200);
     Line l2(0, 196, 600, 196);
@@ -977,12 +978,14 @@ void prePlay()
             }
         }
         cout<<endl<<"Welcome, "<<name_user<<" !"<<endl;
+        return;
 }
 
 int main()
 {
     initCanvas("MAIN", 600, 600);
-    startUP();
+    load("Loading...","Application is loading.\nPlease Wait.");
+    system("cls");
     menu();
     closeCanvas();
     system("cls");
