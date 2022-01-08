@@ -67,6 +67,32 @@ int getans(int x,int y)
     else return(0);
 }
 
+void animat(int c)
+{
+    if(c==1)
+    {
+        Rectangle Corbox(290,50,120,30);
+        Text corr(290,50,"That's Right ! ! !");
+        Corbox.setColor(COLOR(0,255,0));
+        Corbox.setFill();
+        wait(0.9);
+        Corbox.~Rectangle();
+        corr.~Text();
+        return;
+    }
+    else if(c==0)
+    {
+        Rectangle Wrobox(291,50,120,30);
+        Text corr(290,50,"That's Wrong ! ! !");
+        Wrobox.setColor(COLOR(255,99,7));
+        Wrobox.setFill();
+        wait(0.9);
+        Wrobox.~Rectangle();
+        corr.~Text();
+        return;
+    }
+}
+
 void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,Circle &w1,Circle &w2,Polygon &star1,Polygon &star2,Polygon &star3,Polygon &star4,Polygon &star5)
 {
     int z=0,p;
@@ -100,6 +126,10 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         cout<<endl<<"Question 1.";
         if((z==10)&&(p==1))
         {
+            Rectangle Corbox(290,50,120,30);
+            Text corr(290,50,"That's Right ! ! !");
+            Corbox.setColor(COLOR(0,255,0));
+            Corbox.setFill();
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
             correctanswer++;
@@ -112,33 +142,53 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
             }
             star1.~Polygon();
             wait(0.9);
+            Corbox.~Rectangle();
+            corr.~Text();
         }
         else if((z==20)&&(p==1))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_2.setColor(COLOR(255,99,71));
             ROP_2.setFill();
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==30)&&(p==1))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_3.setColor(COLOR(255,99,71));
             ROP_3.setFill();
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==40)&&(p==1))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_4.setColor(COLOR(255,99,71));
             ROP_4.setFill();
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else goto stat;
     }
@@ -147,24 +197,40 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         cout<<endl<<"Question 2.";
         if((z==20)&&(p==2))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_2.setColor(COLOR(255,99,71));
             ROP_2.setFill();
             ROP_3.setColor(COLOR(0,255,0));
             ROP_3.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==10)&&(p==2))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_1.setColor(COLOR(255,99,71));
             ROP_1.setFill();
             ROP_3.setColor(COLOR(0,255,0));
             ROP_3.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==30)&&(p==2))
         {
+            Rectangle Corbox(290,50,120,30);
+            Text corr(290,50,"That's Right ! ! !");
+            Corbox.setColor(COLOR(0,255,0));
+            Corbox.setFill();
             ROP_3.setColor(COLOR(0,255,0));
             ROP_3.setFill();
             cout<<endl<<"Correct answer.";
@@ -190,9 +256,15 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
             }
             correctanswer++;
             wait(0.9);
+            Corbox.~Rectangle();
+            corr.~Text();
         }
         else if((z==40)&&(p==2))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_4.setColor(COLOR(255,99,71));
             ROP_4.setFill();
@@ -207,24 +279,40 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         cout<<endl<<"Question 3.";
         if((z==30)&&(p==3))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_3.setColor(COLOR(255,99,71));
             ROP_3.setFill();
             ROP_2.setColor(COLOR(0,255,0));
             ROP_2.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==10)&&(p==3))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_1.setColor(COLOR(255,99,71));
             ROP_1.setFill();
             ROP_2.setColor(COLOR(0,255,0));
             ROP_2.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==20)&&(p==3))
         {
+            Rectangle Corbox(290,50,120,30);
+            Text corr(290,50,"That's Right ! ! !");
+            Corbox.setColor(COLOR(0,255,0));
+            Corbox.setFill();
             ROP_2.setColor(COLOR(0,255,0));
             ROP_2.setFill();
             cout<<endl<<"Correct answer.";
@@ -260,15 +348,23 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
             }
             correctanswer++;
             wait(0.9);
+            Corbox.~Rectangle();
+            corr.~Text();
         }
         else if((z==40)&&(p==3))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_4.setColor(COLOR(255,99,71));
             ROP_4.setFill();
             ROP_2.setColor(COLOR(0,255,0));
             ROP_2.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else goto stat;
     }
@@ -277,6 +373,10 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         cout<<endl<<"Question 4.";
         if((z==10)&&(p==4))
         {
+            Rectangle Corbox(290,50,120,30);
+            Text corr(290,50,"That's Right ! ! !");
+            Corbox.setColor(COLOR(0,255,0));
+            Corbox.setFill();
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
             cout<<endl<<"Correct answer.";
@@ -322,33 +422,53 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
             }
             correctanswer++;
             wait(0.9);
+            Corbox.~Rectangle();
+            corr.~Text();
         }
         else if((z==20)&&(p==4))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_2.setColor(COLOR(255,99,71));
             ROP_2.setFill();
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==30)&&(p==4))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_3.setColor(COLOR(255,99,71));
             ROP_3.setFill();
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==40)&&(p==4))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_4.setColor(COLOR(255,99,71));
             ROP_4.setFill();
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else goto stat;
     }
@@ -357,6 +477,10 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         cout<<endl<<"Question 5.";
         if((z==40)&&(p==5))
         {
+            Rectangle Corbox(290,50,120,30);
+            Text corr(290,50,"That's Right ! ! !");
+            Corbox.setColor(COLOR(0,255,0));
+            Corbox.setFill();
             ROP_4.setColor(COLOR(0,255,0));
             ROP_4.setFill();
             cout<<endl<<"Correct answer.";
@@ -412,33 +536,53 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
             }
             correctanswer++;
             wait(0.9);
+            Corbox.~Rectangle();
+            corr.~Text();
         }
         else if((z==30)&&(p==5))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_3.setColor(COLOR(255,99,71));
             ROP_3.setFill();
             ROP_4.setColor(COLOR(0,255,0));
             ROP_4.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==20)&&(p==5))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_2.setColor(COLOR(255,99,71));
             ROP_2.setFill();
             ROP_4.setColor(COLOR(0,255,0));
             ROP_4.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else if((z==10)&&(p==5))
         {
+            Rectangle Wrobox(291,50,120,30);
+            Text corr(290,50,"That's Wrong ! ! !");
+            Wrobox.setColor(COLOR(255,99,7));
+            Wrobox.setFill();
             cout<<endl<<"Wrong answer.";
             ROP_1.setColor(COLOR(255,99,71));
             ROP_1.setFill();
             ROP_4.setColor(COLOR(0,255,0));
             ROP_4.setFill();
             wait(0.9);
+            Wrobox.~Rectangle();
+            corr.~Text();
         }
         else goto stat;
     }
@@ -829,6 +973,7 @@ void prePlay()
                     n.~Text();
                     cout<<endl<<endl<<"**Test initiated successfully**"<<endl;
                 }
+
             }
         }
         cout<<endl<<"Welcome, "<<name_user<<" !"<<endl;
