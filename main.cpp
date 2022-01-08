@@ -663,6 +663,7 @@ void play()
         strcpy(o4,t[i].o4());
         test(s,o1,o2,o3,o4,i,b,w1,w2,star1,star2,star3,star4,star5);
     }
+    cout<<endl;
     if(correctanswer>=3)
     {
         cout<<endl<<endl<<"Congratulations!!\nYou have passed the test."<<endl;
