@@ -5,6 +5,7 @@
 #include<ctime>
 #include<fstream>
 #include<stdlib.h>
+#include<conio.h>
 
 using namespace std;
 
@@ -14,7 +15,6 @@ int correctanswer=0;
 string name_user;
 int year=2000;// year of birth
 char* dt;
-
 
 class que
 {
@@ -40,6 +40,22 @@ void clickPos()
 {
     float clickpos[2]={getClick()/65536, getClick()%65536};
     cout<<clickpos[0]<<"\t"<<clickpos[1]<<endl;
+}
+
+void startUP()
+{
+    cout<<endl<<"Application is loading.\nPlease Wait."<<endl;
+    int centre= 187;
+    int len=0;
+    Text l(300,200,"L O A D I N G . . .");
+    for(int i=1;i<=8;i++)
+    {
+        Rectangle load_inner((centre+=12),250,len+=25,textHeight()-2);
+        load_inner.setColor(COLOR(0,255,0));
+        load_inner.setFill();
+        wait(1);
+    }
+    system("cls");
 }
 
 int getans(int x,int y)
@@ -81,11 +97,13 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
     p=v;
     if(s==1)
     {
+        cout<<endl<<"Question 1.";
         if((z==10)&&(p==1))
         {
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
             correctanswer++;
+            cout<<endl<<"Correct answer.";
             for(int m=0;m<=90;m++)
             {
                 b.moveTo(m, 0);
@@ -97,6 +115,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==20)&&(p==1))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_2.setColor(COLOR(255,99,71));
             ROP_2.setFill();
             ROP_1.setColor(COLOR(0,255,0));
@@ -105,6 +124,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==30)&&(p==1))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_3.setColor(COLOR(255,99,71));
             ROP_3.setFill();
             ROP_1.setColor(COLOR(0,255,0));
@@ -113,6 +133,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==40)&&(p==1))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_4.setColor(COLOR(255,99,71));
             ROP_4.setFill();
             ROP_1.setColor(COLOR(0,255,0));
@@ -123,8 +144,10 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
     }
     else if(s==2)
     {
+        cout<<endl<<"Question 2.";
         if((z==20)&&(p==2))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_2.setColor(COLOR(255,99,71));
             ROP_2.setFill();
             ROP_3.setColor(COLOR(0,255,0));
@@ -133,6 +156,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==10)&&(p==2))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_1.setColor(COLOR(255,99,71));
             ROP_1.setFill();
             ROP_3.setColor(COLOR(0,255,0));
@@ -143,6 +167,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         {
             ROP_3.setColor(COLOR(0,255,0));
             ROP_3.setFill();
+            cout<<endl<<"Correct answer.";
             if(correctanswer==1)
             {
                 for(int m=0;m<=90;m++)
@@ -168,6 +193,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==40)&&(p==2))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_4.setColor(COLOR(255,99,71));
             ROP_4.setFill();
             ROP_3.setColor(COLOR(0,255,0));
@@ -178,8 +204,10 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
     }
     else if(s==3)
     {
+        cout<<endl<<"Question 3.";
         if((z==30)&&(p==3))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_3.setColor(COLOR(255,99,71));
             ROP_3.setFill();
             ROP_2.setColor(COLOR(0,255,0));
@@ -188,6 +216,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==10)&&(p==3))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_1.setColor(COLOR(255,99,71));
             ROP_1.setFill();
             ROP_2.setColor(COLOR(0,255,0));
@@ -198,6 +227,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         {
             ROP_2.setColor(COLOR(0,255,0));
             ROP_2.setFill();
+            cout<<endl<<"Correct answer.";
             if(correctanswer==2)
             {
                 for(int m=0;m<=90;m++)
@@ -233,6 +263,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==40)&&(p==3))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_4.setColor(COLOR(255,99,71));
             ROP_4.setFill();
             ROP_2.setColor(COLOR(0,255,0));
@@ -243,10 +274,12 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
     }
     else if(s==4)
     {
+        cout<<endl<<"Question 4.";
         if((z==10)&&(p==4))
         {
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
+            cout<<endl<<"Correct answer.";
             if(correctanswer==3)
             {
                 for(int m=0;m<=90;m++)
@@ -292,6 +325,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==20)&&(p==4))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_2.setColor(COLOR(255,99,71));
             ROP_2.setFill();
             ROP_1.setColor(COLOR(0,255,0));
@@ -300,6 +334,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==30)&&(p==4))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_3.setColor(COLOR(255,99,71));
             ROP_3.setFill();
             ROP_1.setColor(COLOR(0,255,0));
@@ -308,6 +343,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==40)&&(p==4))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_4.setColor(COLOR(255,99,71));
             ROP_4.setFill();
             ROP_1.setColor(COLOR(0,255,0));
@@ -318,10 +354,12 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
     }
     else if(s==5)
     {
+        cout<<endl<<"Question 5.";
         if((z==40)&&(p==5))
         {
             ROP_4.setColor(COLOR(0,255,0));
             ROP_4.setFill();
+            cout<<endl<<"Correct answer.";
             if(correctanswer==4)
             {
                 for(int m=0;m<=90;m++)
@@ -377,6 +415,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==30)&&(p==5))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_3.setColor(COLOR(255,99,71));
             ROP_3.setFill();
             ROP_4.setColor(COLOR(0,255,0));
@@ -385,6 +424,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==20)&&(p==5))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_2.setColor(COLOR(255,99,71));
             ROP_2.setFill();
             ROP_4.setColor(COLOR(0,255,0));
@@ -393,6 +433,7 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,
         }
         else if((z==10)&&(p==5))
         {
+            cout<<endl<<"Wrong answer.";
             ROP_1.setColor(COLOR(255,99,71));
             ROP_1.setFill();
             ROP_4.setColor(COLOR(0,255,0));
@@ -479,6 +520,7 @@ void play()
     }
     if(correctanswer>=3)
     {
+        cout<<endl<<endl<<"Congratulations!!\nYou have passed the test."<<endl;
         status.replace(0,4,"Pass");
         b.~Polygon();
         star1.~Polygon();
@@ -495,7 +537,8 @@ void play()
         l5.~Line();
         Rectangle Pas(300,300,300,100);
         Text Pass(300,300,"CONGRATS!!!YOU PASSED THE TEST");
-        Pass.setFill(COLOR(0,255,0));
+        Pas.setColor(COLOR(0,255,0));
+        Pas.setFill();
         XEvent endgame;
         {
             while(1)
@@ -509,6 +552,7 @@ void play()
     }
     else
     {
+        cout<<endl<<endl<<"OOPs!!\nYou have failed the test.\nBetter luck next time."<<endl;
         status.replace(0,4,"Fail");
         b.~Polygon();
         star1.~Polygon();
@@ -525,7 +569,8 @@ void play()
         l5.~Line();
         Rectangle Pas(300,300,300,100);
         Text Pass(300,300,"Oh!!!Better Luck Next Time...");
-        Pass.setFill(COLOR(0,255,0));
+        Pas.setColor(COLOR(255,99,71));
+        Pas.setFill();
         XEvent endgame;
         {
             while(1)
@@ -568,7 +613,8 @@ void menu()
     switch (ch)
     {
         // input=1
-        case 49:cout<<endl<<"%Start Test%"<<endl;
+        case 49:system("cls");
+                cout<<endl<<"%Start Test%"<<endl;
                 play();
                 break;
         // input=2
@@ -578,7 +624,7 @@ void menu()
                 cout<<endl<<"\tGoal: "<<endl;
                 cout<<endl<<"This is a very basic traffic test."<<endl;
                 cout<<endl<<"Total of 5 multiple choice questions will be asked."<<endl;
-                cout<<endl<<"Score will be calculated based on\nthe number of correct answers and the speed of answering"<<endl;
+                cout<<endl<<"You need atleast 3 correct answers to pass the test.\n\nAs of now, there is no time limit for answering the questions."<<endl;
                 XEvent e2;
                 {
                         Text t1(300, 150, "Controls: ");
@@ -587,9 +633,9 @@ void menu()
                         Text t2(300, 270, "Goal: ");
                         Text t3(300, 310, "This is a very basic traffic test.");
                         Text t4(300, 350, "Total of 5 multiple choice questions will be asked.");
-                        Text t5(300, 390, "Score will be calculated based on");
-                        Text t6(300, 410, "the number of correct answers and the speed of answering");
-                        Text t7(300, 470, "Press any key to go back!");
+                        Text t5(300, 390, "You need atleast 3 correct answers to pass the test.");
+                        Text t6(300, 430, "As of now, there is no time limit for answering the questions.");
+                        Text t7(300, 480, "Press any key to go back!");
                         t7.setColor(COLOR(255, 0, 0));
                         nextEvent(e2);
                         int an = charFromEvent(e2);
@@ -611,19 +657,19 @@ void menu()
         // input=3
         case 51:cout<<endl<<"%Credits%"<<endl;
                 cout<<endl<<"\tTeam Dynamites "<<endl;
-                cout<<endl<<"Vibhav Desai (2014063)"<<endl;
+                cout<<endl<<"Chinmay Joshi (2014006)"<<endl;
                 cout<<endl<<"Vadiraj Inamdar (2014059)"<<endl;
                 cout<<endl<<"Shubham Tendulkar (2014051)"<<endl;
-                cout<<endl<<"Chinmay Joshi (2014006)"<<endl;
+                cout<<endl<<"Vibhav Desai (2014063)"<<endl;
                  cout<<endl<<"\nFaculty Incharge: Prof. Amrita Naik"<<endl;;
                 XEvent e3;
                 {
                         Text t1(300, 150, "CREDITS:");
                         Text t2(300, 190, "Team Dynamites ");
-                        Text m1(300, 230, "Vibhav Desai (2014063)");
+                        Text m1(300, 230, "Chinmay Joshi (2014006)");
                         Text m2(300, 250, "Vadiraj Inamdar (2014059)");
                         Text m3(300, 270, "Shubham Tendulkar (2014051)");
-                        Text m4(300, 290, "Chinmay Joshi (2014006)");
+                        Text m4(300, 290, "Vibhav Desai (2014063)");
                         Text t3(300, 330, "Faculty Incharge: Prof. Amrita Naik");
                         Text t4(300, 380, "Press any key to go back!");
                         t4.setColor(COLOR(255, 0, 0));
@@ -670,6 +716,7 @@ void ageRestrict()
                 {
                     t1.~Text();
                     t2.~Text();
+                    system("cls");
                     return;
                 }
             }
@@ -747,6 +794,8 @@ void prePlay()
         db.~Rectangle();
         if(2021-year<18) // check if age is 18 or above
         {
+            t1.~Text();
+            t.~Text();
             ageRestrict();
             menu();
         }
@@ -788,7 +837,10 @@ void prePlay()
 int main()
 {
     initCanvas("MAIN", 600, 600);
+    startUP();
     menu();
     closeCanvas();
+    system("cls");
+    cout<<"\nThank you for taking the test with us.\nHave a good day ahead \2"<<endl;
     getch();
 }
