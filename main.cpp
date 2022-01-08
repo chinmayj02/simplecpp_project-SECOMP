@@ -51,7 +51,7 @@ int getans(int x,int y)
     else return(0);
 }
 
-void test(char q[],char op1[],char op2[],char op3[],char op4[],int v)
+void test(char q[],char op1[],char op2[],char op3[],char op4[],int v,Polygon &b,Circle &w1,Circle &w2,Polygon &star1,Polygon &star2,Polygon &star3,Polygon &star4,Polygon &star5)
 {
     int z=0,p;
     Rectangle RB(290,290,500,100);
@@ -85,8 +85,15 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v)
         {
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
-            wait(0.9);
             correctanswer++;
+            for(int m=0;m<=90;m++)
+            {
+                b.moveTo(m, 0);
+                w1.moveTo(36+m, 177);
+                w2.moveTo(117+m, 177);
+            }
+            star1.~Polygon();
+            wait(0.9);
         }
         else if((z==20)&&(p==1))
         {
@@ -136,6 +143,26 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v)
         {
             ROP_3.setColor(COLOR(0,255,0));
             ROP_3.setFill();
+            if(correctanswer==1)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(90+m, 0);
+                    w1.moveTo(126+m, 177);
+                    w2.moveTo(207+m, 177);
+                }
+                star2.~Polygon();
+            }
+            else
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(m, 0);
+                    w1.moveTo(36+m, 177);
+                    w2.moveTo(117+m, 177);
+                }
+                star1.~Polygon();
+            }
             correctanswer++;
             wait(0.9);
         }
@@ -171,6 +198,36 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v)
         {
             ROP_2.setColor(COLOR(0,255,0));
             ROP_2.setFill();
+            if(correctanswer==2)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(180+m, 0);
+                    w1.moveTo(216+m, 177);
+                    w2.moveTo(297+m, 177);
+                }
+                star3.~Polygon();
+            }
+            else if(correctanswer==1)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(90+m, 0);
+                    w1.moveTo(126+m, 177);
+                    w2.moveTo(207+m, 177);
+                }
+                star2.~Polygon();
+            }
+            else
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(m, 0);
+                    w1.moveTo(36+m, 177);
+                    w2.moveTo(117+m, 177);
+                }
+                star1.~Polygon();
+            }
             correctanswer++;
             wait(0.9);
         }
@@ -190,6 +247,46 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v)
         {
             ROP_1.setColor(COLOR(0,255,0));
             ROP_1.setFill();
+            if(correctanswer==3)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(270+m, 0);
+                    w1.moveTo(306+m, 177);
+                    w2.moveTo(387+m, 177);
+                }
+                star4.~Polygon();
+            }
+            else if(correctanswer==2)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(180+m, 0);
+                    w1.moveTo(216+m, 177);
+                    w2.moveTo(297+m, 177);
+                }
+                star3.~Polygon();
+            }
+            else if(correctanswer==1)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(90+m, 0);
+                    w1.moveTo(126+m, 177);
+                    w2.moveTo(207+m, 177);
+                }
+                star2.~Polygon();
+            }
+            else
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(m, 0);
+                    w1.moveTo(36+m, 177);
+                    w2.moveTo(117+m, 177);
+                }
+                star1.~Polygon();
+            }
             correctanswer++;
             wait(0.9);
         }
@@ -225,6 +322,56 @@ void test(char q[],char op1[],char op2[],char op3[],char op4[],int v)
         {
             ROP_4.setColor(COLOR(0,255,0));
             ROP_4.setFill();
+            if(correctanswer==4)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(360+m, 0);
+                    w1.moveTo(396+m, 177);
+                    w2.moveTo(477+m, 177);
+                }
+                star5.~Polygon();
+            }
+            else if(correctanswer==3)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(270+m, 0);
+                    w1.moveTo(306+m, 177);
+                    w2.moveTo(387+m, 177);
+                }
+                star4.~Polygon();
+            }
+            else if(correctanswer==2)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(180+m, 0);
+                    w1.moveTo(216+m, 177);
+                    w2.moveTo(297+m, 177);
+                }
+                star3.~Polygon();
+            }
+            else if(correctanswer==1)
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(90+m, 0);
+                    w1.moveTo(126+m, 177);
+                    w2.moveTo(207+m, 177);
+                }
+                star2.~Polygon();
+            }
+            else
+            {
+                for(int m=0;m<=90;m++)
+                {
+                    b.moveTo(m, 0);
+                    w1.moveTo(36+m, 177);
+                    w2.moveTo(117+m, 177);
+                }
+                star1.~Polygon();
+            }
             correctanswer++;
             wait(0.9);
         }
@@ -328,7 +475,7 @@ void play()
         strcpy(o2,t[i].o2());
         strcpy(o3,t[i].o3());
         strcpy(o4,t[i].o4());
-        test(s,o1,o2,o3,o4,i);
+        test(s,o1,o2,o3,o4,i,b,w1,w2,star1,star2,star3,star4,star5);
     }
     if(correctanswer>=3)
     {
@@ -391,27 +538,6 @@ void play()
         }
 
     }
-    // stars rotation
-   /* while(1)
-    {
-        star1.right(5);
-        star2.right(5);
-        star3.right(5);
-        star4.right(5);
-        star5.right(5);
-        wait(0.1);
-    }
-    // car movement
-    for(int m=0;m<=50;m++)
-    {
-        b.moveTo(car_body_start[0]+=m, 0);
-        w1.moveTo(car_wheel1_start[0]+=m, 177);
-        w2.moveTo(car_wheel2_start[0]+=m, 177);
-    }
-    wait(2);
-*/
-    //while(1)clickPos();
-
     fstream f1;
     f1.open("user_data.txt", ios::out|ios::app);// for record keeping
     if(!f1) {cout<<"error"; return ;}
